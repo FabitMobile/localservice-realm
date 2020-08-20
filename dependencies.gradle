@@ -1,0 +1,31 @@
+ext {
+    //Config
+    androidCompileSdkVersion = 28
+    androidBuildToolsVersion = "28.0.3"
+    androidMinSdkVersion = 19
+    androidTargetSdkVersion = 28
+
+    appVersionCode = 102
+    appVersionName = "1.99.1"
+
+    //Deps
+    timberVersion = '4.7.0'
+    rxJavaVersion = '2.1.10'
+    rxAndroidVersion = '2.0.1'
+    javaInjectVersion = '1'
+
+    //FABIT
+    libraryUtilsVersion = '1.0.0'
+
+    localServiceRealmDependencies = [
+            kotlinStdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            rxJava      : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid   : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            timber      : "com.jakewharton.timber:timber:$timberVersion",
+            javaInject  : "javax.inject:javax.inject:$javaInjectVersion"
+    ]
+
+    libs = [
+            utils     : "com.github.FabitMobile:utils:$libraryUtilsVersion"
+    ]
+}
