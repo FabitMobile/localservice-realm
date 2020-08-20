@@ -1,4 +1,4 @@
-package ru.parking.localservice_realm.commonmapper;
+package ru.fabit.localservicerealm.commonmapper;
 
 
 import java.util.ArrayList;

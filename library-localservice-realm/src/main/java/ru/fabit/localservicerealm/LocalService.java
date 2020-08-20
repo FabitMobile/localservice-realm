@@ -1,4 +1,4 @@
-package ru.parking.localservice_realm;
+package ru.fabit.localservicerealm;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,7 +13,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.realm.RealmModel;
 import io.realm.RealmQuery;
-import ru.parking.utils.Optional;
+import ru.fabit.utils.Optional;
 
 
 public interface LocalService {

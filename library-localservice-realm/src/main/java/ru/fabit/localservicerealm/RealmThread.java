@@ -1,4 +1,4 @@
-package ru.parking.localservice_realm;
+package ru.fabit.localservicerealm;
 
 import android.os.HandlerThread;
 

@@ -1,4 +1,4 @@
-package ru.parking.localservice_realm;
+package ru.fabit.localservicerealm;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,8 +27,8 @@ import io.realm.RealmModel;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.Sort;
-import ru.parking.localservice_realm.commonmapper.CommonMapper;
-import ru.parking.utils.Optional;
+import ru.fabit.localservicerealm.commonmapper.CommonMapper;
+import ru.fabit.utils.Optional;
 
 public class LocalServiceImpl implements LocalService {
 

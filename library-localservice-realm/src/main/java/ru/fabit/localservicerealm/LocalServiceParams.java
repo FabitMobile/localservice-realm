@@ -1,11 +1,11 @@
-package ru.parking.localservice_realm;
+package ru.fabit.localservicerealm;
 
 import java.util.Map;
 
 import io.reactivex.functions.Function;
 import io.realm.RealmQuery;
 import io.realm.Sort;
-import ru.parking.localservice_realm.commonmapper.CommonMapper;
+import ru.fabit.localservicerealm.commonmapper.CommonMapper;
 
 
 public class LocalServiceParams<InputType, ReturnType> {
