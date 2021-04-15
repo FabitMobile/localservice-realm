@@ -18,6 +18,7 @@ import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -181,43 +182,33 @@ public class LocalServiceImpl implements LocalService {
     @Override
     public Completable storeObject(final Class clazz,
                                    final JSONObject jsonObject) {
-
-        Scheduler ioScheduler = schedulerFactory.io();
-
         return Completable.create(emitter -> {
             Realm realm = getRealm();
-            realm.beginTransaction();
-            try {
-                realm.createOrUpdateObjectFromJson(clazz, jsonObject);
-            } catch (Exception ex) {
-                emitter.onError(ex);
-            } finally {
-                realm.commitTransaction();
+            realm.executeTransactionAsync(realm1 -> {
+                realm1.createOrUpdateObjectFromJson(clazz, jsonObject);
+            }, () -> {
                 closeRealm(realm);
                 emitter.onComplete();
-            }
-        }).subscribeOn(ioScheduler);
+            }, error -> {
+                emitter.onError(error);
+            });
+        }).subscribeOn(AndroidSchedulers.mainThread());
     }
 
     @Override
     public Completable storeObjects(final Class clazz,
                                     final JSONArray jsonArray) {
-
-        Scheduler ioScheduler = schedulerFactory.io();
-
         return Completable.create(emitter -> {
             Realm realm = getRealm();
-            realm.beginTransaction();
-            try {
-                realm.createOrUpdateAllFromJson(clazz, jsonArray);
-            } catch (Exception ex) {
-                emitter.onError(ex);
-            } finally {
-                realm.commitTransaction();
+            realm.executeTransactionAsync(realm1 -> {
+                realm1.createOrUpdateAllFromJson(clazz, jsonArray);
+            }, () -> {
                 closeRealm(realm);
                 emitter.onComplete();
-            }
-        }).subscribeOn(ioScheduler);
+            }, error -> {
+                emitter.onError(error);
+            });
+        }).subscribeOn(AndroidSchedulers.mainThread());
     }
 
     @Override
